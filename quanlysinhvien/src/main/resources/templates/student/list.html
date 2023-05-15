@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My book list</title>
+  <th:block th:replace="layout::link-css"></th:block>
+</head>
+<body>
+<th:block th:replace="layout::header"></th:block>
+<div class="container">
+  <h1 th:text="${title}"></h1>
+  <table class="table">
+    <tr>
+      <th>MSSV</th>
+      <th>HOTEN</th>
+      <th>NGAYSINH</th>
+      <th>EMAIL</th>
+      <th>MALOP</th>
+      <th>Action</th>
+    </tr>
+
+    <tr th:each="student : ${students}">
+      <td th:text="${student.mssv}"></td>
+      <td th:text="${student.hoten}"></td>
+      <td th:text="${student.ngaysinh}"></td>
+      <td th:text="${student.email}"></td>
+      <td th:text="${student.lop.tenlop}"></td>
+      <td>
+        <a th:href="@{/students/edit/{mssv}(mssv=${student.mssv})}">Edit</a>
+        <a th:href="@{/students/delete/{mssv}(mssv=${student.mssv})}"
+           onclick="return confirm('Are you sure?')">Delete</a>
+      </td>
+    </tr>
+  </table>
+
+</div>
+
+<th:block th:replace="layout::footer"></th:block>
+</body>
+</html>
