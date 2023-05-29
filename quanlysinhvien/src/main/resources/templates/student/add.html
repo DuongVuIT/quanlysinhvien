@@ -29,7 +29,7 @@
     </div>
     <div class="col-6 mb-3">
       <label class="form-label" for="malop">Lop:</label>
-      <select class="form-control" id="malop" name="malop">
+      <select class="form-control" id="malop" name="malop" th:field="*{lop}">
         <option value="">---------Select Lop -------</option>
         <option th:each="lop : ${lops}" th:value="${lop.malop}"
                 th:text="${lop.tenlop}"></option>

@@ -22,7 +22,7 @@ public class SinhVien {
     private String email;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "malop",insertable = false,updatable = false,referencedColumnName = "malop",foreignKey = @ForeignKey(name="FK_SINHVIEN_LOP"))
+    @JoinColumn(name = "malop" ,referencedColumnName = "malop",foreignKey = @ForeignKey(name="FK_SINHVIEN_LOP"))
     private Lop lop;
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "SinhVien_MonHoc",

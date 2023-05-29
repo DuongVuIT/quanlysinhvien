@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Đăng ký</title>
+</head>
+<body>
+<h2>Đăng ký</h2>
+<form th:action="@{/users/save}" th:object="${user}" method="post">
+  <div class="col-6 mb-3">
+    <label class="form-label" for="username" >Username: </label>
+    <input class="form-control" type="text" th:field="*{username}" id="username" th:required minlength="5">
+  </div>
+  <div class="col-6 mb-3">
+    <label class="form-label" for="password">Password</label>
+    <input class="form-control" type="text" th:field="*{password}" id="password" th:required minlength="5">
+    <input type="submit" class="btn btn-primary" value = "Save">
+  </div>
+</form>
+</body>
+</html>
